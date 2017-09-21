@@ -6,6 +6,7 @@ RUN service nginx stop
 RUN sed -i 's#/run/php/php7.0-fpm.sock#9000#' /etc/php/7.0/fpm/pool.d/www.conf
 RUN echo "xdebug.idekey=PHPSTORM" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini \
 	&& echo "xdebug.remote_enable=1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini \
+	&& echo "xdebug.remote_autostart=1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini \
 	&& echo "xdebug.remote_connect_back=1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
 RUN service php7.0-fpm stop
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
