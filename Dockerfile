@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER John Eriksson <root@ranbogmord.com>
 
-RUN apt-get update -y && apt-get install -y nginx php-fpm php-mysql php-gd php-intl php-soap wget php-xdebug php-curl
+RUN apt-get update -y && apt-get install -y nginx php-fpm php-mysql php-gd php-intl php-soap wget php-xml php-curl php-mbstring php-xdebug
 RUN service nginx stop
 RUN sed -i 's#/run/php/php7.0-fpm.sock#9000#' /etc/php/7.0/fpm/pool.d/www.conf
 RUN echo "xdebug.idekey=PHPSTORM" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini \
